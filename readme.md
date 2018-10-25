@@ -1,12 +1,24 @@
-# Theme Assistant for Movable Type 5+
+# Theme Assistant for Movable Type 6
 
-If you are familiar with the Melody/Endevver approach to theming with Movable Type 4, you are also likely familar with the [Theme Manager plugin](). Theme Manager did a lot of great things to make themes more manageable on Movable Type 4, however Movable Type 5 introduced a more comprehensive theming system, largely negating the need for Theme Manager's capabilities.
+If you are familiar with the Melody/Endevver approach to theming with Movable Type 4, you are also likely familar with the [Theme Manager plugin](https://github.com/openmelody/mt-plugin-theme-manager). Theme Manager did a lot of great things to make themes more manageable on Movable Type 4, however Movable Type 5 introduced a more comprehensive theming system, largely negating the need for Theme Manager's capabilities.
 
-But, there are still some things Theme Manager does that we missed in MT5 -- most notably, setting Template Module and Widget caching options automatically and the ability to update Custom Fields. (Theming in MT5 supports *installing* Custom Fields, but not updating them.)
+But, there are still some things Theme Manager does that we missed in Movable Type 6 -- most notably, setting Template Module and Widget caching options automatically and the ability to update Custom Fields. (Theming in Movable Type 5 and 6 supports *installing* Custom Fields, but not updating them.)
+
+## Updates to Theme Assistant Made by After6 Services
+
+After6 Services forked Theme Assistant in October 2018 because:
+
+* One of our clients needs the Custom Field management functionality of Theme Manager.
+
+* The schema attributes we use to specify our theme, `elements` and `custom_fields`, are the Movable Type 5/6 way of theming, not the Movable Type 4 way of theming that Endevver's version of Theme Assistant supported.
+
+* The [Endevver version of Theme Assistant](https://github.com/endevver/mt-plugin-theme-assistant) is not really being maintained anymore.
+
+No hard feelings to Dan Wolfgang or Endevver. We just need a version of Theme Assistant to work effectively with our theme.
 
 # Prerequisites
 
-* Movable Type 5+
+* Movable Type 6.0 or later.
 
 # Installation
 
@@ -16,9 +28,9 @@ http://tinyurl.com/easy-plugin-install
 
 # Use
 
-Specify your Custom Fields and caching options in YAML. Note that Theme Assistant currently only looks at `template_sets` (the MT4 way of theming) to find these values. Some abbreviated example YAML:
+Specify your Custom Fields and caching options in YAML. Note that Theme Assistant currently only looks at `elements` (the Movable Type 5/6 way of theming) to find these values. Some abbreviated example YAML:
 
-template_sets:
+elements:
     my_awesome_theme:
         label: 'My Awesome Theme'
         templates:
@@ -29,7 +41,7 @@ template_sets:
                     expire_type: 1
                     expire_interval: 60
                     include_with_ssi: 1
-        fields:
+        custom_fields:
             entry_extra_text_field:
                 label: 'Extra Text Field'
                 description: 'This is a text custom field.'
@@ -77,16 +89,16 @@ Settings > General).
 ## Install and Update Custom Fields
 
 Many sites require the use of the Movable Type Commercial Pack's Custom Fields
-(part of MT Pro). If fields are specified in your theme's `config.yaml` they
+(part of MT Pro). If custom fields are specified in your theme's `config.yaml` they
 can be automatically created when you apply your theme.
 
 The following example shows how to add a text custom field for Entries to the
 theme we're building.
 
-    template_sets:
+    elements:
         my_awesome_theme:
             label: 'My Awesome Theme'
-            fields:
+            custom_fields:
                 entry_extra_text_field:
                     label: 'Extra Text Field'
                     description: 'This is a text custom field.'
@@ -97,7 +109,7 @@ theme we're building.
                     tag: EntryExtraTextField
                     scope: blog
 
-Custom Field definitions appear beneath the key `fields`.
+Custom Field definitions appear beneath the key `custom_fields`.
 
 The key `entry_extra_text_field` is the basename of this field.
 
@@ -131,10 +143,10 @@ theme's `config.yaml`; you just need to specify the key correctly.
 To create a system-level custom field (necessary is you use the `author`
 object type), include the `scope` key:
 
-    template_sets:
+    elements:
         my_awesome_theme:
             label: 'My Awesome Theme'
-            fields:
+            custom_fields:
                 author_bio:
                     label: 'Author Bio'
                     obj_type: author
@@ -146,6 +158,13 @@ object type), include the `scope` key:
 
 This plugin is licensed under the same terms as Perl itself.
 
+# Authorship
+
+Theme Assistant was originally written by Dan Wolfgang at Endevver.
+
+Movable Type 5/6-style theme modifications written by Dave Aiello at After6 Services.
+
 #Copyright
 
 Copyright 2013, Endevver LLC. All rights reserved.
+Copyright &copy; 2018, After6 Services LLC. All rights reserved.

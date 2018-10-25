@@ -22,7 +22,7 @@ sub _install_custom_fields {
     my $ta  = $app->component('ThemeAssistant');
 
     my $ts_id = $blog->template_set or return;
-    my $set   = $app->registry( 'template_sets', $ts_id ) or return;
+    my $set   = $app->registry( 'elements', $ts_id ) or return;
 
     # In order to refresh both the blog-level and system-level custom fields,
     # merge each of those hashes. We don't have to worry about those hashes
@@ -39,6 +39,7 @@ sub _install_custom_fields {
     # interchangeably.
     @$fields{ keys %{ $set->{sys_fields} } } = values %{ $set->{sys_fields} };
     @$fields{ keys %{ $set->{fields} } }     = values %{ $set->{fields} };
+    @$fields{ keys %{ $set->{custom_fields} } } = values %{ $set->{custom_fields} };
 
     # Give up if there are no custom fields to install.
     return unless $fields;
