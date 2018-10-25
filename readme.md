@@ -164,7 +164,8 @@ Theme Assistant was originally written by Dan Wolfgang at Endevver.
 
 Movable Type 5/6-style theme modifications written by Dave Aiello at After6 Services.
 
-#Copyright
+# Copyright
 
 Copyright 2013, Endevver LLC. All rights reserved.
+
 Copyright &copy; 2018, After6 Services LLC. All rights reserved.
