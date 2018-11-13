@@ -30,26 +30,26 @@ http://tinyurl.com/easy-plugin-install
 
 Specify your Custom Fields and caching options in YAML. Note that Theme Assistant currently only looks at `elements` (the Movable Type 5/6 way of theming) to find these values. Some abbreviated example YAML:
 
-elements:
-    my_awesome_theme:
-        label: 'My Awesome Theme'
-        templates:
-            module:
-                my_helper_module:
-                  label: 'Cached Helper Module'
-                  cache:
-                    expire_type: 1
-                    expire_interval: 60
-                    include_with_ssi: 1
-        custom_fields:
-            entry_extra_text_field:
-                label: 'Extra Text Field'
-                description: 'This is a text custom field.'
-                default: 'Replace this default text with any value.'
-                required: 1
-                obj_type: entry
-                type: text
-                tag: EntryExtraTextField
+    elements:
+        my_awesome_theme:
+            label: 'My Awesome Theme'
+            templates:
+                module:
+                    my_helper_module:
+                      label: 'Cached Helper Module'
+                      cache:
+                        expire_type: 1
+                        expire_interval: 60
+                        include_with_ssi: 1
+            custom_fields:
+                entry_extra_text_field:
+                    label: 'Extra Text Field'
+                    description: 'This is a text custom field.'
+                    default: 'Replace this default text with any value.'
+                    required: 1
+                    obj_type: entry
+                    type: text
+                    tag: EntryExtraTextField
 
 ## Set Caching and Include Options
 
