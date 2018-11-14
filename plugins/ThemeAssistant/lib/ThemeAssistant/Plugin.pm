@@ -37,6 +37,11 @@ sub _install_custom_fields {
     # "sys_fields" is for system custom fields and "fields" is for blog level
     # custom fields, however the scope key means that they can be used
     # interchangeably.
+    #
+    # By the same token the key "custom_fields" seems to have been introduced
+    # by MT 5.0, so it's used in the same fashion as "sys_fields" and "fields"
+    # have been.
+    #
     @$fields{ keys %{ $set->{sys_fields} } } = values %{ $set->{sys_fields} };
     @$fields{ keys %{ $set->{fields} } }     = values %{ $set->{fields} };
     @$fields{ keys %{ $set->{custom_fields} } } = values %{ $set->{custom_fields} };
@@ -123,8 +128,8 @@ sub _set_module_caching_prefs {
     my $app = MT->instance;
 
     my $ts_id = $blog->template_set or return;
-    my $set   = $app->registry( 'template_sets', $ts_id ) or return;
-    my $tmpls = $app->registry( 'template_sets', $ts_id, 'templates' );
+    my $set   = $app->registry( 'elements', $ts_id ) or return;
+    my $tmpls = $app->registry( 'elements', $ts_id, 'templates' );
 
     foreach my $t (qw( module widget )) {
         # Give up if there are no templates that match

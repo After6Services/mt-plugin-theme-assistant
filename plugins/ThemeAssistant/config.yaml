@@ -1,11 +1,11 @@
 key:         themeassistant
 id:          themeassistant
 name:        'Theme Assistant'
-description: 'Brings some of Theme Manager's capabilities to Movable Type 6.'
+description: 'Brings some of the Theme Manager capabilities to Movable Type 6.'
 author_name: 'After6 Services LLC'
 author_link: http://after6services.com
 plugin_link: https://github.com/after6services/mt-plugin-theme-assistant
-version:     1.0.4
+version:     1.0.5
 
 callbacks:
     post_apply_theme: $ThemeAssistant::ThemeAssistant::Plugin::callback_post_apply_theme
