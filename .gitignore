@@ -1,0 +1,5 @@
+
+# Local-only editor coloring so this folder is visually distinct from
+# worktrees of the same repo. Intentionally untracked — see conversation
+# with Claude, 2026-07-23, on worktree management.
+.vscode/
